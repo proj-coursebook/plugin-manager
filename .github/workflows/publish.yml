@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: packages/file-manager
+        working-directory: packages/plugin-manager
     steps:
       - uses: actions/checkout@v4
 
