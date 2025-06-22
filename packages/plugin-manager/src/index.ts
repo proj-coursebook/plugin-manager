@@ -1,4 +1,4 @@
-import { LogManagerImpl, type Logger } from "@coursebook/simple-logger";
+import { LogManagerImpl, type Logger } from "@madooei/simple-logger";
 import {
   type Plugin,
   type PluginManager,
@@ -27,7 +27,7 @@ class PluginManagerImpl<T> implements PluginManager<T> {
   addPlugin(plugin: Plugin<T>): void {
     this.logger.trace("Adding plugin to pipeline");
     if (typeof plugin !== "function") {
-      this.logger.error("Plugin must be a function");
+      this.logger.info("Plugin must be a function");
       throw new PluginManagerError(
         PluginManagerErrorType.PLUGIN_EXECUTION_ERROR,
         "Plugin must be a function",
@@ -65,7 +65,7 @@ class PluginManagerImpl<T> implements PluginManager<T> {
         }
         this.logger.trace(`Plugin ${i + 1} completed successfully`);
       } catch (error) {
-        this.logger.error(`Plugin ${i + 1} failed:`, error);
+        this.logger.info(`Plugin ${i + 1} failed:`);
         throw new PluginManagerError(
           PluginManagerErrorType.PLUGIN_EXECUTION_ERROR,
           `Plugin ${i + 1} failed: ${error instanceof Error ? error.message : "Unknown error"}`,
