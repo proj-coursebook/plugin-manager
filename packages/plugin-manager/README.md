@@ -97,7 +97,7 @@ interface PluginManager<T> {
 
 ```typescript
 type Plugin<T> = (
-  files: FileDataCollection<T>
+  files: FileDataCollection<T>,
 ) => Promise<FileDataCollection<T>> | FileDataCollection<T>;
 ```
 
